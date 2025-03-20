@@ -1,0 +1,78 @@
+// app.delete("/todos", (req, res) => {
+//   todos = []; // Reset the array
+//   res.send("All todos have been deleted!");
+// });
+
+///////
+
+// let userIds = 1;
+// let accountsIds = 1;
+// let sessionsIds = 1;
+
+// // Din kod här. Skriv dina arrayer
+// const users = [];
+// const accounts = [];
+// const sessions = [];
+
+// // Din kod här. Skriv dina routes:
+// app.post("/users", async (req, res) => {
+//   const {username, password} = req.body;
+
+//   const userId = userIds++;
+//   const user = {id: userIds++, username, password};
+//   users.push(user);
+
+//   const accountId = accountsIds++;
+//   const account = {id: accountId, userId: userId, amount: 0};
+//   accounts.push(account);
+
+//   console.log("User", user);
+//   console.log("Account", account);
+
+//   res.send("User created");
+// });
+
+// function getUser(username, password) {
+//   const user = users.find(
+//     (user) => user.username === username && user.password === password
+//   );
+//   return user;
+// }
+
+// app.post("login", async (req, res) => {
+//   const {username, password} = req.body;
+
+//   const user = getUser(username, password);
+
+//   if (user) {
+//     const token = generateOTP();
+//     const sessionId = sessionsIds++;
+
+//     const session = {id: sessionId, userId: user.id, token};
+//     sessions.push(session);
+
+//     res.json(session);
+//   } else {
+//     res.send("Login failed");
+//   }
+// });
+
+// app.post("/me/accounts", async (req, res) => {
+//   const {token} = req.body;
+//   const session = sessions.find((session) => session.token === token);
+
+//   if (session) {
+//     const {userId} = session;
+
+//     const account = accounts.find((account) => account.userId === userId);
+
+//     res.json(account);
+//   } else {
+//     res.send("session not found");
+//   }
+// });
+
+// // Starta servern
+// app.listen(port, () => {
+//   console.log(`Bankens backend körs på http://localhost:${port}`);
+// });
