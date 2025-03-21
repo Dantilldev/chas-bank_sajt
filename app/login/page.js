@@ -3,6 +3,7 @@ import Link from "next/link";
 import {useRouter} from "next/navigation";
 import {useState} from "react";
 import {useSession} from "../context/SessionContext";
+import {BASE_URL} from "@/utils/baseUrl";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -18,7 +19,7 @@ export default function Login() {
     const newUser = {username, password};
 
     try {
-      const response = await fetch("http://localhost:4000/sessions", {
+      const response = await fetch(`http://${BASE_URL}:4000/sessions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

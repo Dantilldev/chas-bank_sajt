@@ -2,6 +2,7 @@
 import React, {useEffect, useState} from "react";
 import {useSession} from "../context/SessionContext";
 import Link from "next/link";
+import {BASE_URL} from "@/utils/baseUrl";
 
 export default function AccountPage() {
   const {session} = useSession();
@@ -15,7 +16,7 @@ export default function AccountPage() {
     }
 
     try {
-      const response = await fetch("http://localhost:4000/me/accounts", {
+      const response = await fetch(`http://${BASE_URL}:4000/me/accounts`, {
         method: "POST", // Use POST to match the backend
         headers: {
           "Content-Type": "application/json",
@@ -44,7 +45,7 @@ export default function AccountPage() {
 
     try {
       const response = await fetch(
-        "http://localhost:4000/me/accounts/transactions",
+        `http://${BASE_URL}:4000/me/accounts/transactions`,
         {
           method: "POST", // Use POST to match the backend
           headers: {
@@ -135,18 +136,18 @@ export default function AccountPage() {
               </div>
             ) : (
               <div className="text-center py-10">
-                <p className="text-gray-600">Laddar dina kontouppgifter...</p>
+                <p className="text-gray-600">Loading...</p>
               </div>
             )}
           </div>
         ) : (
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center">
             <p className="text-gray-700 mb-4">
-              Du måste logga in för att se dina kontouppgifter.
+              You need to log in to see your account
             </p>
             <Link href="/login">
               <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
-                Logga in
+                Login
               </button>
             </Link>
           </div>

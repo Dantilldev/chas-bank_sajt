@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import {useState, useEffect} from "react";
+import {BASE_URL} from "@/utils/baseUrl";
 
 export default function Signup() {
   const [username, setUsername] = useState("");
@@ -9,7 +10,7 @@ export default function Signup() {
 
   async function getUsers() {
     try {
-      const response = await fetch("http://localhost:4000/users", {
+      const response = await fetch(`http://${BASE_URL}:4000/users`, {
         method: "GET",
       });
       const data = await response.json();
@@ -37,7 +38,7 @@ export default function Signup() {
     const newUser = {username, password};
 
     try {
-      fetch("http://localhost:4000/users", {
+      fetch(`http://${BASE_URL}:4000/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
